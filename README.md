@@ -58,7 +58,7 @@ bash
 Copia
 Modifica
 # Clona il progetto
-git clone https://github.com/tuo-username/kubecheck.git
+git clone 
 cd kubecheck
 
 # Installa le dipendenze
