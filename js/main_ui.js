@@ -214,3 +214,22 @@ function contextAction(act){
   runCommand(m[act]); ctxMenu.style.display = 'none';
 }
 document.addEventListener('click', () => ctxMenu.style.display = 'none');
+function showLoader() {
+  document.getElementById('loaderOverlay').style.display = 'flex';
+}
+function hideLoader() {
+  document.getElementById('loaderOverlay').style.display = 'none';
+}
+
+// nel btn.onclick:
+btn.onclick = () => {
+  btn.classList.add('analyzing');
+  btn.textContent = `🔍 Analisi ${ns}...`;
+  searchBox.value = '';
+  nsList.innerHTML = '';
+  showLoader();
+  setTimeout(() => {
+    selectNs(entry.file, ns);
+    hideLoader();
+  }, 1000); // tieni visible spinner almeno 1s
+};

@@ -1,0 +1,274 @@
+/* -----------------------------
+   FONT BASE & RESET STILE
+------------------------------ */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0b0b13; /* sfondo scuro */
+  color: #ffffff;            /* testo base bianco */
+  overflow: hidden;
+}
+
+/* -----------------------------
+   LAYOUT PRINCIPALE
+------------------------------ */
+#app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* -----------------------------
+   SIDEBAR (barra laterale sinistra)
+------------------------------ */
+#sidebar {
+  width: 260px;
+  min-width: 100px;
+  max-width: 420px;
+  background: linear-gradient(135deg, #3a0075, #1a0033); /* viola tech/pop */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+}
+#sidebar.collapsed {
+  transform: translateX(-100%);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Divider barra-resizer */
+#resizer {
+  width: 3px;
+  cursor: col-resize;
+  background: #3f007a;
+}
+#resizer:hover {
+  background: #6b6bff;
+}
+
+/* -----------------------------
+   BOTTONE MENU SUPERIORE SINISTRA
+------------------------------ */
+#toggleBtn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 6px 10px;
+  font-weight: bold;
+  border-radius: 2px;
+  box-shadow: 0 0 3px #ffd700;
+}
+
+/* -----------------------------
+   CONTENUTO CENTRALE
+------------------------------ */
+#mainArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.2rem;
+  position: relative;
+}
+
+/* LOGO (opzionale) */
+.logo {
+  width: 100%;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 6px #ff00ff);
+}
+
+/* -----------------------------
+   LISTA NAMESPACE
+------------------------------ */
+.namespace {
+  font-size: .75rem;
+  background: #2a0055;
+  color: #fff;
+  border-left: 4px solid transparent;
+  transition: all 0.2s;
+}
+.namespace:hover {
+  background-color: #3f0099;
+  border-left: 4px solid #ffd700;
+}
+.namespace.active {
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+}
+
+/* -----------------------------
+   CARDS NELL'OVERVIEW
+------------------------------ */
+.card {
+  background: #1c0030;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 1rem;
+  position: relative;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+.card h6 {
+  margin-top: 0;
+}
+.card-icons {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  display: flex;
+  gap: 10px;
+}
+.card-icons i {
+  cursor: pointer;
+  color: #aaa;
+}
+.card-icons i:hover {
+  color: #ffd700;
+}
+
+/* -----------------------------
+   BOX OUTPUT COMANDI
+------------------------------ */
+.output-box {
+  height: 360px;
+  overflow-y: auto;
+  background: #0f0f1c;
+  padding: 10px;
+  border: 2px solid #4b0082;
+  border-radius: .5rem;
+  font-family: monospace;
+  position: relative;
+  box-shadow: inset 0 0 10px #1e90ff44;
+}
+.output-box button.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: .4rem;
+}
+
+/* -----------------------------
+   MENU CONTESTUALE (tasto destro)
+------------------------------ */
+.context-menu {
+  position: absolute;
+  background: #1f0047;
+  border: 2px solid #ffd700;
+  padding: .5rem;
+  border-radius: 10px;
+  z-index: 100;
+  display: none;
+  box-shadow: 0 0 10px #ff0;
+}
+.context-menu button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: left;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.context-menu button:hover {
+  background: #ffd700;
+  color: #000;
+}
+
+/* -----------------------------
+   MENU A TENDINA (comandi rapidi)
+------------------------------ */
+.dropdown-menu {
+  max-height: 300px;
+  overflow-y: auto;
+  background: #2a0044;
+  border: 2px solid #ff00ff;
+  color: #fff;
+}
+.dropdown-menu button {
+  color: #fff;
+}
+.dropdown-menu button:hover {
+  background: #ffd700;
+  color: #000;
+}
+
+/* -----------------------------
+   STILE BOTTONI BASE
+------------------------------ */
+button.btn {
+  border-radius: 6px !important;
+}
+.btn-outline-light {
+  border-color: #ffd700 !important;
+  color: #ffd700 !important;
+}
+.btn-outline-light:hover {
+  background-color: #ffd700 !important;
+  color: #000 !important;
+}
+
+/* -----------------------------
+   OVERLAY DI CARICAMENTO
+------------------------------ */
+#loaderOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* PALLINI ANIMATI */
+.spinner-dots {
+  display: flex;
+  gap: 12px;
+}
+.spinner-dots div {
+  width: 14px;
+  height: 14px;
+  background: #ffcc00;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+.spinner-dots div:nth-child(2) { animation-delay: 0.2s; }
+.spinner-dots div:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  to {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+}
+
+/* -----------------------------
+   MEDIA QUERY (RESPONSIVE TEXT SIZE)
+------------------------------ */
+@media (max-width: 1200px) {
+  body, .namespace, .card, .output-box, .btn {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 768px) {
+  body, .namespace, .card, .output-box, .btn {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 480px) {
+  body, .namespace, .card, .output-box, .btn {
+    font-size: 0.75rem;
+  }
+}
