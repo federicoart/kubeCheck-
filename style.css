@@ -25,7 +25,7 @@ body, html {
 ------------------------------ */
 #sidebar {
   width: 260px;
-  min-width: 100px;
+  min-width: 120px;
   max-width: 420px;
   background: linear-gradient(135deg, #3a0075, #1a0033); /* viola tech/pop */
   color: #fff;
@@ -33,7 +33,7 @@ body, html {
   flex-direction: column;
   overflow-y: auto;
   z-index: 2;
-  box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.246);
 }
 #sidebar.collapsed {
   transform: translateX(-100%);
@@ -56,7 +56,7 @@ body, html {
 #toggleBtn {
   position: fixed;
   top: 10px;
-  left: 10px;
+  left: 140px;
   z-index: 10;
   background-color: #ffcc00;
   color: #000;
@@ -88,7 +88,7 @@ body, html {
    LISTA NAMESPACE
 ------------------------------ */
 .namespace {
-  font-size: .75rem;
+  font-size: .7rem;
   background: #2a0055;
   color: #fff;
   border-left: 4px solid transparent;
@@ -110,8 +110,8 @@ body, html {
 .card {
   background: #1c0030;
   color: #fff;
-  border-radius: 12px;
-  padding: 10px;
+  border-radius: 16px;
+  padding: 5px;
   margin-bottom: 1rem;
   position: relative;
   box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
@@ -133,17 +133,32 @@ body, html {
 .card-icons i:hover {
   color: #ffd700;
 }
+/* -----------------------------
+   BOX DRAG & DROP
+------------------------------ */
+
+.overview-col.drag-over {
+  outline: 2px dashed #007bff;
+}
+.overview-col.dragging {
+  opacity: 0.5;
+}
+.resizable-card {
+  box-sizing: border-box;
+}
+
+
 
 /* -----------------------------
    BOX OUTPUT COMANDI
 ------------------------------ */
 .output-box {
-  height: 360px;
+  height: 260px;
   overflow-y: auto;
   background: #0f0f1c;
   padding: 10px;
   border: 2px solid #4b0082;
-  border-radius: .5rem;
+  border-radius: .6rem;
   font-family: monospace;
   position: relative;
   box-shadow: inset 0 0 10px #1e90ff44;
@@ -152,7 +167,7 @@ body, html {
   position: absolute;
   top: 8px;
   right: 12px;
-  font-size: .4rem;
+  font-size: .6rem;
 }
 
 /* -----------------------------
@@ -259,16 +274,66 @@ button.btn {
 ------------------------------ */
 @media (max-width: 1200px) {
   body, .namespace, .card, .output-box, .btn {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
   }
 }
 @media (max-width: 768px) {
   body, .namespace, .card, .output-box, .btn {
-    font-size: 0.4rem;
+    font-size: 0.6rem;
   }
 }
 @media (max-width: 480px) {
   body, .namespace, .card, .output-box, .btn {
-    font-size: 0.4rem;
+    font-size: 0.6rem;
   }
+}
+
+/* Miglioramento leggibilità e UI delle overview-draggable-card */
+.overview-draggable-card {
+  flex: 1 1 350px;
+  min-width: 250px;
+  max-width: 300px;
+  min-height: 120px;
+  margin: 8px 0 8px 0;
+  background: #2a184d;
+  color: #f8f8f8;
+  border: 2px solid #3b00756b;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px 0 rgba(58,0,117,0.10), 0 1.5px 4px 0 rgba(0,0,0,0.07);
+  position: relative;
+  overflow: auto;
+  transition: box-shadow 0.2s, width 0.2s, height 0.2s, border 0.2s;
+  padding: 18px 16px 18px 16px;
+  font-size: 0.6rem;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
+.overview-draggable-card:active, .overview-draggable-card.dragging {
+  box-shadow: 0 8px 32px 0 rgba(58,0,117,0.18), 0 2px 8px 0 rgba(0,0,0,0.13);
+  border-color: #ff6600;
+}
+.overview-draggable-card h6, .overview-draggable-card h5, .overview-draggable-card h4 {
+  color: #ffffff;
+  margin-top: 0.2em;
+  margin-bottom: 0.7em;
+  font-weight: 700;
+}
+.resize-handle {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 20px;
+  height: 20px;
+  background: repeating-linear-gradient(135deg, #ff6600 0 3px, #fff 3px 6px);
+  border-radius: 5px;
+  cursor: se-resize;
+  z-index: 2;
+  border: 1.5px solid #3a0075;
+  box-shadow: 0 1px 4px rgba(58,0,117,0.10);
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.resize-handle:hover {
+  opacity: 1;
+  background: repeating-linear-gradient(135deg, #ff6600 0 2px, #ffd700 2px 4px);
 }

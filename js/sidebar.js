@@ -25,7 +25,7 @@ fetch('kube_namespaces_only.json')
               setTimeout(() => {
                 selectNs(entry.file, ns);
                 hideLoader();
-              }, 1000); // oppure appena finisce il caricamento se vuoi
+              }, 800); // oppure appena finisce il caricamento se vuoi
             };
 
             nsList.appendChild(btn);
@@ -33,15 +33,6 @@ fetch('kube_namespaces_only.json')
       });
     });
   });
-function showLoader() {
-  const el = document.getElementById('loaderOverlay');
-  if (el) el.style.display = 'flex';
-}
-
-function hideLoader() {
-  const el = document.getElementById('loaderOverlay');
-  if (el) el.style.display = 'none';
-}
 
 function selectNs(file, ns) {
   filePath = file;
@@ -55,4 +46,13 @@ function selectNs(file, ns) {
   renderCmdButtons();
   loadOverview();
   renderCmdMenu();
+}
+function showLoader() {
+  const el = document.getElementById('loaderOverlay');
+  if (el) el.style.display = 'flex';
+}
+
+function hideLoader() {
+  const el = document.getElementById('loaderOverlay');
+  if (el) el.style.display = 'none';
 }
