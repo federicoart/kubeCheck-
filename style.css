@@ -264,11 +264,11 @@ button.btn {
 }
 @media (max-width: 768px) {
   body, .namespace, .card, .output-box, .btn {
-    font-size: 0.8rem;
+    font-size: 0.4rem;
   }
 }
 @media (max-width: 480px) {
   body, .namespace, .card, .output-box, .btn {
-    font-size: 0.75rem;
+    font-size: 0.4rem;
   }
 }
